@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from 'react';
 
 interface ButtonProps {
-    name:String;
+  name: string;
 }
 
+export const Button = ({ name }: ButtonProps) => {
+	const [number, setNumber] = useState(0);
 
-export const Button = ({name}:ButtonProps) => {
-
-    return (
-        <button className="dynamic_button">{name}</button>
-    )
-}
+	return (
+		<button className='dynamic_button' onClick={() => setNumber(number + 1)}>
+			{name}
+			{`click count:${number}`}
+		</button>
+	);
+};
